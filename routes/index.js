@@ -13,6 +13,7 @@ module.exports = app => {
       .then(burger => res.json(burger))
       .catch(e => console.log(e))
   })
+
   // POST a burger
   app.post('/burgers', (req, res) => {
     addBurger(req.body)
