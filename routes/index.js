@@ -1,10 +1,16 @@
-const { getBurger, addBurger, updateBurger, deleteBurger } = require('../config/connection')
+const { getBurgers, getBurger, addBurger, updateBurger, deleteBurger } = require('../controllers/burgers_controller.js')
 
 module.exports = app => {
+  // GET all burgers
+  app.get('/burgers', (req, res) => {
+    getBurgers()
+      .then(burgers => res.json(burgers))
+      .catch(e => console.log(e))
+  })
   // GET a burger
   app.get('/burgers/:t', (req, res) => {
-    getBurger({ movie: req.params.t })
-      .then(movie => res.json(movie))
+    getBurger({ burger: req.params.t })
+      .then(burger => res.json(burger))
       .catch(e => console.log(e))
   })
   // POST a burger

@@ -1,5 +1,6 @@
-const db = require('../config/connection')
+const { Router } = require('express')
+const burgerModel = require('../models/burger.js')
 
-module.exports = {
+const router = Router()
 
-}
+module.exports = router
